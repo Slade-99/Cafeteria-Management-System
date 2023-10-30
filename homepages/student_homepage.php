@@ -24,7 +24,7 @@
 
                 <div class="small_card">
                     <i class="fa-solid fa-heart"></i>
-                </div>
+                <div>
 
                 <div class="menu_info">
                     <h2>Chicken Curry</h2>
