@@ -1,0 +1,88 @@
+[
+    {
+        "id": 1,
+        "name":" Paratha",
+        "price": 10,
+        "image": "Images/WhatsApp Image 2023-10-25 at 12.39.45 AM (1).jpeg"
+    },
+    {
+        "id": 2,
+        "name":" Dim Bhajhi",
+        "price": 20,
+        "image": "Images/WhatsApp Image 2023-10-25 at 12.39.45 AM (2).jpeg"
+    },
+    {
+        "id": 3,
+        "name":" Mixed Shabji",
+        "price": 30,
+        "image": "Images/WhatsApp Image 2023-10-25 at 12.39.49 AM.jpeg"
+    },
+    {
+        "id": 4,
+        "name":" Daal",
+        "price": 30,
+        "image": "Images/WhatsApp Image 2023-10-25 at 12.39.46 AM.jpeg"
+    },
+    {
+        "id": 5,
+        "name":" Shawrma",
+        "price": 100,
+        "image": "Images/WhatsApp Image 2023-10-25 at 12.39.46 AM (2).jpeg"
+    },
+    {
+        "id": 6,
+        "name":" Vegetable Chawmein",
+        "price": 100,
+        "image": "Images/WhatsApp Image 2023-10-25 at 12.39.47 AM.jpeg"
+    },
+    {
+        "id": 7,
+        "name":" Biriyani",
+        "price": 150,
+        "image": "Images/WhatsApp Image 2023-10-25 at 12.39.48 AM (1).jpeg"
+    },
+    {
+        "id": 8,
+        "name":" Vegetable Khichuri",
+        "price": 120,
+        "image": "Images/WhatsApp Image 2023-10-25 at 12.39.48 AM.jpeg"
+    },
+    {
+        "id": 9,
+        "name":" Fish Curry",
+        "price": 150,
+        "image": "Images/WhatsApp Image 2023-10-25 at 12.39.49 AM (1).jpeg"
+    },
+     {
+        "id": 10,
+        "name":" Chicken Curry",
+        "price": 150,
+        "image": "Images/WhatsApp Image 2023-10-25 at 12.39.50 AM (1).jpeg"
+    },
+    {
+        "id": 11,
+        "name":" Coffee",
+        "price": 30,
+        "image": "Images/WhatsApp Image 2023-10-25 at 12.39.51 AM.jpeg"
+    },
+    {
+        "id": 12,
+        "name":" CocaCola",
+        "price": 250,
+        "image": "Images/WhatsApp Image 2023-10-25 at 12.39.51 AM (2).jpeg"
+    },
+    {
+        "id": 13,
+        "name":" Sprite",
+        "price": 250,
+        "image": "Images/WhatsApp Image 2023-10-25 at 12.39.51 AM (3).jpeg"
+    },
+    {
+        "id": 13,
+        "name":" Minarel Water",
+        "price": 20,
+        "image": "Images/997ec4b70d360c96697eada2299c7c8f.jpg"
+    }
+
+
+]
