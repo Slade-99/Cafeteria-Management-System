@@ -4,241 +4,103 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Website</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="student_style.css">
+    <title>Menu</title>
 </head>
 <body>
-    <!--Menu-->
+    </header>
+    <div class="container">
+        <h1 class="head1">Available Menu</h1>
+        <table class="table" id="myTable" data-filter-control="true" data-show-search-clear-button="true">
+            <tr>
+                <th> Name</th>
+                <th>Price of Item(s)</th>
+                <th>Available Quantity</th>
+            </tr>
+            <?php
+            $servername = "localhost";
+            $username = "root"; 
+            $password = ""; 
+            $dbname = "Cafeteria";
+            $conn = new mysqli($servername, $username, $password, $dbname);
 
-    <div class="menu" id="Menu">
-        <h1>Welcome<span>to Cafeteria!</span></h1>
-        <h1>Our<span>Menu</span></h1>
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
 
-        <div class="menu_box">
-            <div class="menu_card">
+            $sql = "SELECT * FROM Menu";
+            $result = $conn->query($sql);
 
-                <div class="menu_image">
-                    <img src="image/Chicken Curry.jpg">
-                </div>
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $row['Name'] . "</td>";
+                    echo "<td>" . $row['Price'] . "</td>";
+                    echo "<td>" . $row['Quantity'] . "</td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "0 results";
+            }
+                    
+            $sql = "SELECT Due AS TotalDue, Fines AS TotalFines FROM Customer";
+            $result = $conn->query($sql);
 
-                <div class="small_card">
-                    <i class="fa-solid fa-heart"></i>
-                </div>
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                echo "<tr>";
+                echo "<td colspan='2'>Total Due:</td>";
+                echo "<td colspan='2'>" . $row['TotalDue'] . "</td>";
+                echo "</tr>";
 
-                <div class="menu_info">
-                    <h2>Chicken Curry</h2>
-                    <h3>150/- Taka</h3>
-                    <div class="menu_icon">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half-stroke"></i>
-                    </div>
-                    <a href="#" class="menu_btn"></a>
-                </div>
+                echo "<tr>";
+                echo "<td colspan='2'>Total Fine:</td>";
+                echo "<td colspan='2'>" . $row['TotalFines'] . "</td>";
+                echo "</tr>";
+            } 
+            else {
+                echo "<tr><td colspan='4'>No data available</td></tr>";
+            }
 
-            </div> 
+            $conn->close();
+            ?>
+
             
-            <div class="menu_card">
-
-                <div class="menu_image">
-                    <img src="image/Fish Curry.jpg">
-                </div>
-
-                <div class="small_card">
-                    <i class="fa-solid fa-heart"></i>
-                </div>
-
-                <div class="menu_info">
-                    <h2>Fish Curry</h2>
-                    <h3>150/- taka</h3>
-                    <div class="menu_icon">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half-stroke"></i>
-                    </div>
-                    <a href="#" class="menu_btn"></a>
-                </div>
-
-            </div> 
-
-            <div class="menu_card">
-
-                <div class="menu_image">
-                    <img src="image/biryani.webp">
-                </div>
-
-                <div class="small_card">
-                    <i class="fa-solid fa-heart"></i>
-                </div>
-
-                <div class="menu_info">
-                    <h2>Biriyani</h2>
-                    <h3>150/- taka</h3>
-                    <div class="menu_icon">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half-stroke"></i>
-                    </div>
-                    <a href="#" class="menu_btn"></a>
-                </div>
-
-            </div> 
-
-            <div class="menu_card">
-
-                <div class="menu_image">
-                    <img src="image/Coffee.jpg">
-                </div>
-
-                <div class="small_card">
-                    <i class="fa-solid fa-heart"></i>
-                </div>
-
-                <div class="menu_info">
-                    <h2>Coffee</h2>
-                    <h3>25/- taka</h3>
-                    <div class="menu_icon">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half-stroke"></i>
-                    </div>
-                    <a href="#" class="menu_btn"></a>
-                </div>
-
-            </div> 
-
-            <div class="menu_card">
-
-                <div class="menu_image">
-                    <img src="image/Coke.jpg">
-                </div>
-
-                <div class="small_card">
-                    <i class="fa-solid fa-heart"></i>
-                </div>
-
-                <div class="menu_info">
-                    <h2>Coke</h2>
-                    <h3>25/- taka</h3>
-                    <div class="menu_icon">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half-stroke"></i>
-                    </div>
-                    <a href="#" class="menu_btn"></a>
-                </div>
-
-            </div> 
-
-            <div class="menu_card">
-
-                <div class="menu_image">
-                    <img src="image/daal.jpeg">
-                </div>
-
-                <div class="small_card">
-                    <i class="fa-solid fa-heart"></i>
-                </div>
-
-                <div class="menu_info">
-                    <h2>daal</h2>
-                    <h3>30/- taka</h3>
-                    <div class="menu_icon">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half-stroke"></i>
-                    </div>
-                    <a href="#" class="menu_btn"></a>
-                </div>
-
-            </div> 
-
-            <div class="menu_card">
-
-                <div class="menu_image">
-                    <img src="image/Shawarma.jpg">
-                </div>
-
-                <div class="small_card">
-                    <i class="fa-solid fa-heart"></i>
-                </div>
-
-                <div class="menu_info">
-                    <h2>Shawarma</h2>
-                    <h3>100/- taka</h3>
-                    <div class="menu_icon">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half-stroke"></i>
-                    </div>
-                    <a href="#" class="menu_btn"></a>
-                </div>
-
-            </div> 
-
-            <div class="menu_card">
-
-                <div class="menu_image">
-                    <img src="image/Mixed Shabji.jpg">
-                </div>
-
-                <div class="small_card">
-                    <i class="fa-solid fa-heart"></i>
-                </div>
-
-                <div class="menu_info">
-                    <h2>Mixed Shabji</h2>
-                    <h3>150/- taka</h3>
-                    <div class="menu_icon">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half-stroke"></i>
-                    </div>
-                    <a href="#" class="menu_btn"></a>
-                </div>
-
-            </div> 
-
-            <div class="menu_card">
-
-                <div class="menu_image">
-                    <img src="image/vegetable khichuri.jpg">
-                </div>
-
-                <div class="small_card">
-                    <i class="fa-solid fa-heart"></i>
-                </div>
-
-                <div class="menu_info">
-                    <h2>Vegetable Khichuri</h2>
-                    <h3>150/- taka</h3>
-                    <div class="menu_icon">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half-stroke"></i>
-                    </div>
-                    <a href="#" class="menu_btn"></a>
-                </div>
+            
+            
+        </table>
     </div>
 
+    <footer class="footer">
+    <div class="foot-container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Discover</h4>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Reviews</a></li>
+                    <li><a href="#">Event</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul class="cntact-info">
+                    <li><a href="#">BRAC University Cafeteria</a></li>
+                    <li><a href="#">Badda, Dhaka, Bangladesh</a></li>
+                    <li><a href="#">Email: bracu.cafeteria@g.bracu.ac.bd</a></li>
+                    <li><a href="#">Phone:  +880-2-222264051- 4 (PABX) (Information Desk ext. 4003, 4004), +880-2-222263948, +880-2-222293949</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
