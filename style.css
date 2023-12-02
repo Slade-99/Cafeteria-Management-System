@@ -536,3 +536,361 @@ main.table {
       width: 2rem;
       height: auto;
   }
+
+
+.container {
+      width: 100%;
+      height: 100vh;
+      padding: 0 8%;  
+}
+
+.container h1{
+      text-align: center ;
+      padding-top: 10%;
+      margin-bottom: 60px;
+      font-weight: 600;
+      position: relative;
+      color : #eff0f1;
+     
+}
+.container h1::after{
+      content: '';
+      background: #535dea;
+      width: 100px;
+      height: 5px;
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 0.5px solid rgba(255, 255, 255, .5);
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+
+}
+
+.row{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 30px;
+      color: #eff0f1;
+      text-decoration: none;
+      font-weight: 650;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 1200px;
+      height: 260px;
+      background: transparent;
+      border: 5px solid rgba(255, 255, 255, .5);
+      border-radius: 40px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      ransition: height .2s ease;
+      
+
+}
+.create{
+      text-align: center ;
+      padding: 25px 10px;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      background: transparent;
+      transition: transform 0.5s, background 0.5s;
+
+}
+.create h2{
+      font-weight: 600;
+      margin-bottom: 8px;
+}
+.create:hover{
+      background: #696fc2;
+      color: #fff;
+      transform: scale(1.05);
+}
+
+.update{
+      text-align: center;
+            padding: 25px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            background: transparent;
+            transition: transform 0.5s, background 0.5s;
+}
+.update h2 {
+      font-weight: 600;
+      margin-bottom: 8px;
+}
+.update:hover {
+      background: #696fc2;
+      color: #fff;
+      transform: scale(1.05);
+}
+.delete {
+      text-align: center;
+      padding: 25px 10px;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      background: transparent;
+      transition: transform 0.5s, background 0.5s;
+}
+
+.delete h2 {
+      font-weight: 600;
+      margin-bottom: 8px;
+}
+.delete:hover {
+      background: #696fc2;
+      color: #fff;
+      transform: scale(1.05);
+}
+.paymentStatus {
+      text-align: center;
+      padding: 25px 10px;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      background: transparent;
+      transition: transform 0.5s, background 0.5s;
+}
+
+.paymentStatus h2 {
+      font-weight: 600;
+      margin-bottom: 8px;
+}
+.paymentStatus:hover {
+      background: #696fc2;
+      color: #fff;
+      transform: scale(1.05);
+}
+.billstokens {
+      text-align: center;
+      padding: 25px 10px;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      background: transparent;
+      transition: transform 0.5s, background 0.5s;
+}
+
+.billstokens h2 {
+      font-weight: 600;
+      margin-bottom: 8px;
+}
+.billstokens:hover {
+      background: #696fc2;
+      color: #fff;
+      transform: scale(1.05);
+}
+
+.cafeMenu {
+      text-align: center;
+      padding: 25px 10px;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      background: transparent;
+      transition: transform 0.5s, background 0.5s;
+}
+
+.cafeMenu h2 {
+      font-weight: 600;
+      margin-bottom: 8px;
+}
+.cafeMenu:hover {
+      background: #696fc2;
+      color: #fff;
+      transform: scale(1.05);
+}
+
+
+
+
+
+
+.container {
+    width: 100%;
+    height: 100vh;
+    padding: 0 8%;  
+}
+
+.container h1{
+    text-align: center ;
+    padding-top: 10%;
+    margin-bottom: 60px;
+    font-weight: 600;
+    position: relative;
+    color : #eff0f1;
+   
+}
+.container h1::after{
+    content: '';
+    background: #535dea;
+    width: 100px;
+    height: 5px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 0.5px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.row{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 30px;
+    color: #eff0f1;
+    text-decoration: none;
+    font-weight: 650;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 1200px;
+    height: 260px;
+    background: transparent;
+    border: 5px solid rgba(255, 255, 255, .5);
+    border-radius: 40px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: height .2s ease;
+    
+
+}
+.create{
+    text-align: center ;
+    padding: 25px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    background: transparent;
+    transition: transform 0.5s, background 0.5s;
+
+}
+.create h2{
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.create:hover{
+    background: #696fc2;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.update{
+    text-align: center;
+          padding: 25px 10px;
+          border-radius: 5px;
+          font-size: 14px;
+          cursor: pointer;
+          background: transparent;
+          transition: transform 0.5s, background 0.5s;
+}
+.update h2 {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.update:hover {
+    background: #696fc2;
+    color: #fff;
+    transform: scale(1.05);
+}
+.delete {
+    text-align: center;
+    padding: 25px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    background: transparent;
+    transition: transform 0.5s, background 0.5s;
+}
+
+.delete h2 {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.delete:hover {
+    background: #696fc2;
+    color: #fff;
+    transform: scale(1.05);
+}
+.paymentStatus {
+    text-align: center;
+    padding: 25px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    background: transparent;
+    transition: transform 0.5s, background 0.5s;
+}
+
+.paymentStatus h2 {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.paymentStatus:hover {
+    background: #696fc2;
+    color: #fff;
+    transform: scale(1.05);
+}
+.billstokens {
+    text-align: center;
+    padding: 25px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    background: transparent;
+    transition: transform 0.5s, background 0.5s;
+}
+
+.billstokens h2 {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.billstokens:hover {
+    background: #696fc2;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.cafeMenu {
+    text-align: center;
+    padding: 25px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    background: transparent;
+    transition: transform 0.5s, background 0.5s;
+}
+
+.cafeMenu h2 {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.cafeMenu:hover {
+    background: #696fc2;
+    color: #fff;
+    transform: scale(1.05);
+}
