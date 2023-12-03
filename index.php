@@ -15,7 +15,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                   session_start();
                   $_SESSION['loggedin']= true;
                   $_SESSION['userid'] = $userid;
-                  header("location: ./homepages/faculty_homepage.php?id=".$userid." ");//redirects
+                  header("location: ./homepages/faculty_homepage.php?id=".$userid."&exist=N ");//redirects
       
               
               }
@@ -50,7 +50,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                   session_start();
                   $_SESSION['loggedin']= true;
                   $_SESSION['userid'] = $userid;
-                  header("location: ./homepages/cook_homepage.php?id=".$userid." ");//redirects
+                  header("location: ./cook/cook_homepage.php?id=".$userid." ");//redirects
       
               
               }
@@ -105,9 +105,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <body>
       <header>
             <nav class="navigation">
-                  <a href="#"> Home</a>
+                  <a href="index.html"> Home</a>
                   <a href="#"> About</a>
-                  <a href="#"> Contact</a>
+                  <a href="contact.html"> Contact</a> 
                   <button class="btnlogin-popup"> Login</button>
             </nav>
       </header>
@@ -129,14 +129,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <label for="password">Password</label>
                         
                   </div>
-                  <div class="remember-forgot"
-                  <label><input type="checkbox">Remember me</label>
-                  <a href="#">Forgot Password?</a>
-                  </div>
+               
                   <button type="submit" class="btn">Login</button>
-                  <div class="login-register">
-                        <p>Don't have any account? <a href="#" class="register-link">Register</a></p>
-                  </div>
+            
             </div>
             </form>
       </div>
