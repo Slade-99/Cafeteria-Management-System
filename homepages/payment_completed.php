@@ -6,9 +6,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Order Finalize</title>
-    <link rel="stylesheet" href="../style.css">
-  <body>
-    <h1></h1>
+    <link rel="stylesheet" href="faculty.css">
+  </head>
+  <div class="containerx">
+            
+            <div class="row">
+                  
+                  <div class="delete">
+                        <h2>Please wait. Your order is being processed</h2>
+                        
+                  </div>
+     
+             
+            </div>
+
+
+
+      </div>
+
 
 	<?php 
     include "..\dbconnect.php";
@@ -166,8 +181,6 @@ if($code == 200 && !( curl_errno($handle)))
 
 
 } 
-
-echo '<p style="font-size: 20px; color: #3366cc;">SUCCESS! You are being redirected to your homepage';
 
 
 ?>
