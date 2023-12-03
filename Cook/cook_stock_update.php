@@ -34,11 +34,22 @@ $id=$_GET['id'];
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Order Finalize</title>
-    <link rel="stylesheet" href="../style.css">
-  <body>
-    <h1>Please wait. Redirecting in 1sec.</h1>
+    <link rel="stylesheet" href="cook.css">
+    <div class="containerx">
+            
+            <div class="row">
+                  
+                  <div class="delete">
+                        <h2>Please wait .  &nbsp   Redirecting in a second</h2>
+                        
+                  </div>
+     
+             
+            </div>
 
 
+
+      </div>
  
   <script>
     var jsVariable1 = "<?php echo $id; ?>";
@@ -49,7 +60,7 @@ $id=$_GET['id'];
         (function() {
             setTimeout(function() {
                 window.location.href = './cook_homepage.php?id='+jsVariable1;
-            }, 1000); // 1000 milliseconds = 5 seconds
+            }, 1500); // 5000 milliseconds = 5 seconds
         })();
 
         
