@@ -70,8 +70,8 @@ button:hover {
   }
 
 .styled-button {
-    top: 450px; /* Adjust as needed */
-    right: 20px;
+    top: 300px; 
+    right: 43px;
     display: inline-block;
     position: absolute;
     padding: 10px 20px;
@@ -417,3 +417,26 @@ thead th.active,tbody td.active {
     height: auto;
 }
 
+    
+
+@keyframes blink {
+    0%, 49% {
+      opacity: 1;
+    }
+    50%, 100% {
+      opacity: 0;
+    }
+  }
+  
+  .blinking-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: blink 1s infinite;
+  }
+  
