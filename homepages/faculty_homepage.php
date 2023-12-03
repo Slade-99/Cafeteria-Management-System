@@ -6,10 +6,23 @@ $sql = "SELECT * from customer where Membership_ID = '$id'";
             
             $row = mysqli_fetch_assoc($result);
 
-            $due = $row['Due'];
-            
+            $due = $row['Due'];         
 
-
+$exist = $_GET['exist'];
+if($exist=='Y'){
+    $Token=$_GET['Token'];
+    echo '<div class="custom-alert">
+    <span>Success! Your order token number is.'.$Token.' &nbsp &nbsp Please close this message after you have received your order.   &nbsp &nbsp    Thank you</span>
+    <button class="close-btn" onclick="dismissAlert()">×</button>
+  </div>';
+}
+if($exist=='Feedback'){
+  
+  echo '<div class="custom-alert">
+  <span>Success! Your feedback has been submitted.  &nbsp    Thank you.</span>
+  <button class="close-btn" onclick="dismissAlert()">×</button>
+</div>';
+}
 
 ?>
 
@@ -21,16 +34,14 @@ $sql = "SELECT * from customer where Membership_ID = '$id'";
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Faculty Homepage</title>
-      <link rel="stylesheet" href="f.css">
+     
+      <link rel="stylesheet" href="faculty.css">
 </head>
 <body>
-
 
       <main class="table">
         <section class="table__header">
             <h1>Menu</h1>
-           
-
         </section>
         <section class="table__body">
             <table>
@@ -80,15 +91,7 @@ $sql = "SELECT * from customer where Membership_ID = '$id'";
                         $temp = $temp +1;
                     
                     }
-
-
-
 ?>
-    
-     
-      
-      
-       
        
                 </tbody>
             </table>
@@ -97,152 +100,6 @@ $sql = "SELECT * from customer where Membership_ID = '$id'";
         </section>
     </main>
     <p id="output1"></p>
-   <script>
-
-var myDictionary = {};
-
-
-
-
-
-
-      var total = 0;
-  function increaseQuantity(itemId) {
-    var quantityElement = document.getElementById('quantity_' + itemId);
-    var currentQuantity = parseInt(quantityElement.innerText, 10);
-    
-
-    var row = quantityElement.closest('tr');
-    if (row) {
-    var cells = row.cells;
-
-    // Calculate the indices of the two cells previous
-    var currentCellIndex = Array.from(cells).indexOf(quantityElement.parentNode);
-    var firstPreviousCellIndex = currentCellIndex - 1;
-    var secondPreviousCellIndex = currentCellIndex - 2;
-    var thirdPreviousCellIndex = currentCellIndex - 3;
-
-    // Extract information from the two cells previous
-    var firstPreviousColumnValue = cells[firstPreviousCellIndex].innerText;
-    var secondPreviousColumnValue = cells[secondPreviousCellIndex].innerText;
-    var thirdPreviousColumnValue = cells[thirdPreviousCellIndex].innerText;
-
-}
-      
-      if(currentQuantity<secondPreviousColumnValue){
-      quantityElement.innerText = currentQuantity + 1;
-
-      var value = parseInt(firstPreviousColumnValue, 10);
-      
-      total = total + value;
-      
-      myDictionary[thirdPreviousColumnValue] = currentQuantity+1;
- 
-      document.getElementById('output').innerHTML = total;
-
-
-     
-
-}
-
-
-
-
-
-
-}
-
-  function decreaseQuantity(itemId) {
-    var quantityElement = document.getElementById('quantity_' + itemId);
-    var currentQuantity = parseInt(quantityElement.innerText, 10);
-    if (currentQuantity > 0) {
-      quantityElement.innerText = currentQuantity - 1;
-    }
-    var row = quantityElement.closest('tr');
-    if (row) {
-    var cells = row.cells;
-
-    // Calculate the indices of the two cells previous
-    var currentCellIndex = Array.from(cells).indexOf(quantityElement.parentNode);
-    var firstPreviousCellIndex = currentCellIndex - 1;
-    var secondPreviousCellIndex = currentCellIndex - 2;
-    var thirdPreviousCellIndex = currentCellIndex - 3;
-
-    // Extract information from the two cells previous
-    var firstPreviousColumnValue = cells[firstPreviousCellIndex].innerText;
-    var secondPreviousColumnValue = cells[secondPreviousCellIndex].innerText;
-    var thirdPreviousColumnValue = cells[thirdPreviousCellIndex].innerText;
-
-
-}
-      var value = parseInt(firstPreviousColumnValue, 10);
-      if(total - value >=0 && currentQuantity>0){
-      total = total - value;}
-      myDictionary[thirdPreviousColumnValue] = currentQuantity-1;
-      document.getElementById('output').innerHTML = total;
-      
-
-
-// Call the function with the sample dictionary
-
-
-  }
-
-
-
-
-  var resultString = '';
-
-  function concatenatePositiveValues() {
-      
-      
-    for (var key in myDictionary) {
-        if (myDictionary.hasOwnProperty(key) && myDictionary[key] > 0) {
-            resultString +=  myDictionary[key] + 'x ' + key + ', ';
-        }
-    }
-
-    // Remove the trailing comma and space
-    resultString = resultString.slice(0, -2);
-
-    document.getElementById('output').innerHTML = total;
-}
-
-
-
-function sendVariables(){
-var xhr = new XMLHttpRequest();
-var form = document.createElement("form");
-            form.method = "post";
-            form.action = window.location.href; // Same page URL
-            form.style.display = "none";
-
-            // Add parameters as hidden fields
-            var params = {
-                key1: resultString,
-                key2: total,
-                key3: "Due"
-                
-                // Add more key-value pairs as needed
-            };
-
-            for (var key in params) {
-                if (params.hasOwnProperty(key)) {
-                    var input = document.createElement("input");
-                    input.type = "hidden";
-                    input.name = key;
-                    input.value = params[key];
-                    form.appendChild(input);
-                }
-            }
-
-            document.body.appendChild(form);
-            form.submit();
-        }
-    
-
-</script>
-   
 
 
 
@@ -257,14 +114,26 @@ var form = document.createElement("form");
       <strong id='output'> </strong> 
 
     </div>
+    
+    
 
-    <button type = 'submit' class="styled-button">Proceed to payment</button>
-    <button type = 'submit' method='post' class="styled-button_2" onclick="concatenatePositiveValues() ; sendVariables()">Order on due</button>
-
- 
-      
+<button type = 'submit' class='styled-button' onclick='concatenatePositiveValues() ;redirectToPage()' >Proceed to payment</button>
+ <button type = 'submit' class='styled-button_2' onclick='concatenatePositiveValues() ;redirectToPage2()'>Order on due</button>
+ <button type = 'submit' class='styled-button_3' onclick='redirectToPage3()'> Submit a Feedback</button>
+   
+        <script src="./faculty_script.js"></script>
+        <script>
+        // Use PHP echo to output the PHP variable as a JavaScript variable
+        var jsVariable = <?php echo json_encode($id); ?>;
+        // Now you can use jsVariable in your external JavaScript file
+    </script>
       <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
       <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
+
+
+
+
+
 
