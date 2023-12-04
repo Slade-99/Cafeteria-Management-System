@@ -1,106 +1,216 @@
+<?php
+include "..\dbconnect.php";
+$id = $_GET['id'];
+$sql = "SELECT * from customer where Membership_ID = '$id'";
+$result = mysqli_query($conn, $sql);
+
+if (!$result) {
+    die('Error: ' . mysqli_error($conn));
+}
+
+$row = mysqli_fetch_assoc($result);
+
+$due = $row['Due'];
+
+var_dump($due);
+
+$fine = $row['Fines'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="student_style.css">
-    <title>Menu</title>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Student Homepage</title>
+      <link rel="stylesheet" href="s.css">
 </head>
 <body>
-    </header>
-    <div class="container">
-        <h1 class="head1">Available Menu</h1>
-        <table class="table" id="myTable" data-filter-control="true" data-show-search-clear-button="true">
-            <tr>
-                <th> Name</th>
-                <th>Price of Item(s)</th>
-                <th>Available Quantity</th>
-            </tr>
-            <?php
-            $servername = "localhost";
-            $username = "root"; 
-            $password = ""; 
-            $dbname = "Cafeteria";
-            $conn = new mysqli($servername, $username, $password, $dbname);
+      <main class="table">
+        <section class="table__header">
+            <h1>Menu</h1>
+        </section>
+        <section class="table__body">
+            <table>
+                <thead>
+                    <tr>
+                        <th> Item </th>
+                        <th> Available Quantity</th> 
+                        <th> Price </th>
+                                  
+                    </tr>
+                </thead>
+                <tbody>
+  
 
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
+                    <?php
+                    include '../dbconnect.php';
+    
+                    $sql = "Select * from menu;";
+                    $result = mysqli_query($conn, $sql);
+                    $temp = 1;
+                    while ($row = mysqli_fetch_assoc($result)){
+                        
+                        $item_name = $row['Name'];
+                        $quantity = $row['Quantity'];
+                        $price = $row['Price'];
+                   
+                        echo 
+                        "<tr>
+                        <td>". $item_name."</td> 
+                        <td>". $quantity."</td>
+                        <td>". $price ."</td>
+                        </tr>";                      
+                        $temp = $temp +1;
+                    }
+                ?>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <p id="output1"></p>
+   <script>
 
-            $sql = "SELECT * FROM Menu";
-            $result = $conn->query($sql);
+var myDictionary = {};
 
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . $row['Name'] . "</td>";
-                    echo "<td>" . $row['Price'] . "</td>";
-                    echo "<td>" . $row['Quantity'] . "</td>";
-                    echo "</tr>";
+      var total = 0;
+  function increaseQuantity(itemId) {
+    var quantityElement = document.getElementById('quantity_' + itemId);
+    var currentQuantity = parseInt(quantityElement.innerText, 10);
+    
+
+    var row = quantityElement.closest('tr');
+    if (row) {
+    var cells = row.cells;
+
+    // Calculate the indices of the two cells previous
+    var currentCellIndex = Array.from(cells).indexOf(quantityElement.parentNode);
+    var firstPreviousCellIndex = currentCellIndex - 1;
+    var secondPreviousCellIndex = currentCellIndex - 2;
+    var thirdPreviousCellIndex = currentCellIndex - 3;
+
+    // Extract information from the two cells previous
+    var firstPreviousColumnValue = cells[firstPreviousCellIndex].innerText;
+    var secondPreviousColumnValue = cells[secondPreviousCellIndex].innerText;
+    var thirdPreviousColumnValue = cells[thirdPreviousCellIndex].innerText;
+
+}
+      
+      if(currentQuantity<secondPreviousColumnValue){
+      quantityElement.innerText = currentQuantity + 1;
+
+      var value = parseInt(firstPreviousColumnValue, 10);
+      
+      total = total + value;
+      
+      myDictionary[thirdPreviousColumnValue] = currentQuantity+1;
+ 
+      document.getElementById('output').innerHTML = total;
+     
+}
+
+}
+
+  function decreaseQuantity(itemId) {
+    var quantityElement = document.getElementById('quantity_' + itemId);
+    var currentQuantity = parseInt(quantityElement.innerText, 10);
+    if (currentQuantity > 0) {
+      quantityElement.innerText = currentQuantity - 1;
+    }
+    var row = quantityElement.closest('tr');
+    if (row) {
+    var cells = row.cells;
+
+    // Calculate the indices of the two cells previous
+    var currentCellIndex = Array.from(cells).indexOf(quantityElement.parentNode);
+    var firstPreviousCellIndex = currentCellIndex - 1;
+    var secondPreviousCellIndex = currentCellIndex - 2;
+    var thirdPreviousCellIndex = currentCellIndex - 3;
+
+    // Extract information from the two cells previous
+    var firstPreviousColumnValue = cells[firstPreviousCellIndex].innerText;
+    var secondPreviousColumnValue = cells[secondPreviousCellIndex].innerText;
+    var thirdPreviousColumnValue = cells[thirdPreviousCellIndex].innerText;
+
+
+}
+      var value = parseInt(firstPreviousColumnValue, 10);
+      if(total - value >=0 && currentQuantity>0){
+      total = total - value;}
+      myDictionary[thirdPreviousColumnValue] = currentQuantity-1;
+      document.getElementById('output').innerHTML = total;
+      
+// Call the function with the sample dictionary
+
+  }
+  var resultString = '';
+
+  function concatenatePositiveValues() {
+      
+      
+    for (var key in myDictionary) {
+        if (myDictionary.hasOwnProperty(key) && myDictionary[key] > 0) {
+            resultString +=  myDictionary[key] + 'x ' + key + ', ';
+        }
+    }
+
+    // Remove the trailing comma and space
+    resultString = resultString.slice(0, -2);
+
+    document.getElementById('output').innerHTML = total;
+}
+
+
+
+function sendVariables(){
+var xhr = new XMLHttpRequest();
+var form = document.createElement("form");
+            form.method = "post";
+            form.action = window.location.href; // Same page URL
+            form.style.display = "none";
+
+            // Add parameters as hidden fields
+            var params = {
+                key1: resultString,
+                key2: total,
+                key3: "Due"
+                
+                // Add more key-value pairs as needed
+            };
+
+            for (var key in params) {
+                if (params.hasOwnProperty(key)) {
+                    var input = document.createElement("input");
+                    input.type = "hidden";
+                    input.name = key;
+                    input.value = params[key];
+                    form.appendChild(input);
                 }
-            } else {
-                echo "0 results";
-            }
-                    
-            $sql = "SELECT Due AS TotalDue, Fines AS TotalFines FROM Customer";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc();
-                echo "<tr>";
-                echo "<td colspan='2'>Total Due:</td>";
-                echo "<td colspan='2'>" . $row['TotalDue'] . "</td>";
-                echo "</tr>";
-
-                echo "<tr>";
-                echo "<td colspan='2'>Total Fine:</td>";
-                echo "<td colspan='2'>" . $row['TotalFines'] . "</td>";
-                echo "</tr>";
-            } 
-            else {
-                echo "<tr><td colspan='4'>No data available</td></tr>";
             }
 
-            $conn->close();
-            ?>
+            document.body.appendChild(form);
+            form.submit();
+        }
+    
 
-            
-            
-            
-        </table>
-    </div>
+</script>
+   
 
-    <footer class="footer">
-    <div class="foot-container">
-        <div class="row">
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Menu</a></li>
-                    <li><a href="#">About Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Discover</h4>
-                <ul>
-                    <li><a href="#">Our Story</a></li>
-                    <li><a href="#">Reviews</a></li>
-                    <li><a href="#">Event</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contact Us</h4>
-                <ul class="cntact-info">
-                    <li><a href="#">BRAC University Cafeteria</a></li>
-                    <li><a href="#">Badda, Dhaka, Bangladesh</a></li>
-                    <li><a href="#">Email: bracu.cafeteria@g.bracu.ac.bd</a></li>
-                    <li><a href="#">Phone:  +880-2-222264051- 4 (PABX) (Information Desk ext. 4003, 4004), +880-2-222263948, +880-2-222293949</a></li>
-                </ul>
-            </div>
-        </div>
+
+
+<div class="value-box styled-button_2">
+    <strong>Student Due</strong> <br><?php echo $due ?>
+</div>
+
+<div class="value-box styled-button">
+    <strong>Student Fine</strong> <br><?php echo $fine ?>
+</div>  
+
     </div>
-</footer>
+      
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
+
