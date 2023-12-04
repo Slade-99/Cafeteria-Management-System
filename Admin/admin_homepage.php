@@ -1,3 +1,10 @@
+<?php
+
+$id=$_GET['id'];
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,29 +28,30 @@
       <div class="container">
             <h1>Admin Use Only</h1>
             <div class="row">
-                  <div class="create">
+                  <div class="create" onclick='redirectToPage1()'>
                         <h2>Create Membership</h2>
                         <p>Click Here to create membership ID for specific users</p>
                   </div>
                   <div class="update">
-                        <h2>Update</h2>
-                        <p>Wanna update profile ID?</p>
+                        <h2>Update/Delete</h2>
+                        <p>Update or Delete information of other users</p>
                   </div>
-                  <div class="delete">
-                        <h2>Delete</h2>
-                        <p>Wanna delete profile ID?</p>
-                  </div>
+          
                   <div class="paymentStatus">
-                        <h2>Payment Status</h2>
-                        <p>Want to view due payments of users?</p>
+                        <h2>Due Payment Status</h2>
+                        <p>Check due payments of faculty or students</p>
                   </div>
                   <div class="billstokens">
                         <h2>Bills and Tokens</h2>
-                        <p>Click here to issue tokens and create bills</p>
+                        <p>Click here to take order and generate bills</p>
+                  </div>
+                  <div class="cafeMenu" onclick='redirectToPage2()'>
+                        <h2>Update Menu</h2>
+                        <p>Click here to bring changes in the menu</p>
                   </div>
                   <div class="cafeMenu">
-                        <h2>Update Menu</h2>
-                        <p>Wanna update Cafeteria menu??</p>
+                        <h2>Cafeteria Insider</h2>
+                        <p>Click here to check the reports and analysis</p>
                   </div>
             </div>
 
@@ -51,7 +59,18 @@
 
       </div>
 
-
+      <script>
+            var jsVariable = <?php echo json_encode($id); ?>;
+    // JavaScript function to handle the redirection
+    function redirectToPage1() {
+      // Change the URL to the desired destination
+      window.location.href = './Create_Membership/base.php?id='+jsVariable; // Replace 'https://example.com' with your actual URL
+    }
+    function redirectToPage2() {
+      // Change the URL to the desired destination
+      window.location.href = './Update_Menu/update_menu.php?id='+jsVariable; // Replace 'https://example.com' with your actual URL
+    }
+  </script>
       
 </body>
 </html>
