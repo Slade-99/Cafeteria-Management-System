@@ -4,7 +4,6 @@ $obtained = array();
 $description = $_GET['resultString'];
 $id=$_GET['id'];
 
-
     //updating the stock 
       $itemList = explode(',', $description);
       foreach ($itemList as $item) {
