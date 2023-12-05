@@ -49,7 +49,7 @@ $id=$_GET['id'];
                         <h2>Update Menu</h2>
                         <p>Click here to bring changes in the menu</p>
                   </div>
-                  <div class="cafeMenu">
+                  <div class="cafeMenu" onclick='redirectToPage3()'>
                         <h2>Cafeteria Insider</h2>
                         <p>Click here to check the reports and analysis</p>
                   </div>
@@ -69,6 +69,11 @@ $id=$_GET['id'];
     function redirectToPage2() {
       // Change the URL to the desired destination
       window.location.href = './Update_Menu/update_menu.php?id='+jsVariable; // Replace 'https://example.com' with your actual URL
+    }
+    function redirectToPage3(){
+
+      window.location.href = './Cafeteria_Insider/base.php?id='+jsVariable; // Replace 'https://example.com' with your actual URL
+
     }
   </script>
       
