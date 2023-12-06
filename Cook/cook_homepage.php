@@ -1,4 +1,3 @@
-
 <?php
 include "..\dbconnect.php";
 $id = $_GET['id'];
@@ -96,6 +95,41 @@ $sql = "SELECT * from customer where Membership_ID = '$id'";
 
         </section>
     </main>
+
+
+    <main class="table2"> 
+        <section class="table__header2">
+            <h1>Add/Delete an Item</h1>
+        </section>
+        <section class="table__body2">
+            <table>
+                <thead>
+                    <tr>
+                        <th> Item Name </th>
+        
+              
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><input type="texty" id='p1' placeholder=""></td>
+               
+                
+                
+                </tr>
+                
+
+       
+                </tbody>
+            </table>
+
+
+        </section>
+    </main>
+
+
+
+
     <p id="output1"></p>
    <script>
 
@@ -209,27 +243,34 @@ var form = document.createElement("form");
         var jsVariable = <?php echo json_encode($id); ?>;
         function redirectToPage2() {
 
-         window.location.href = './cook_stock_update.php?id='+jsVariable+'&resultString='+resultString;
+         window.location.href = './cook_stock_update.php?id='+jsVariable+'&resultString='+resultString+'&exist=0';
 
         }
+
+        function redirectToPage() {
+            var name = document.getElementById('p1').value;
+            window.location.href = './cook_stock_update.php?id='+jsVariable+'&resultString=&exist=2&name='+name;
+
+}
+
+function redirectToPage3() {
+    var name = document.getElementById('p1').value;
+window.location.href = './cook_stock_update.php?id='+jsVariable+'&resultString=&exist=1&name='+name;
+
+}
+
+
+
 </script>
    
 
 
 
     <button type = 'submit' method='post' class="styled-button" onclick="concatenatePositiveValues() ; redirectToPage2()">Update Stock</button>
-    
+    <button type = 'submit' class='styled-button_2' onclick=' redirectToPage()'>Delete</button>
+    <button type = 'submit' class='styled-button_3' onclick='redirectToPage3()'> Insert Item</button>
       
       <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
       <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
-
-
-
-        
-      
-      
-
-
-

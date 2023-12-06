@@ -4,6 +4,24 @@ $obtained = array();
 $description = $_GET['resultString'];
 $id=$_GET['id'];
 
+$exist = $_GET['exist'];
+if($exist=='1'){
+  $name = $_GET['name'];
+
+
+  $insertion = "Insert into stock values ('$name',0,'EC007')";
+  $result_1 = mysqli_query($conn , $insertion);
+}
+$exist = $_GET['exist'];
+if($exist=='2'){
+  $name = $_GET['name'];
+
+
+  $insertion = "Delete from stock where Item_name='$name'";
+  $result_1 = mysqli_query($conn , $insertion);
+}
+
+if($exist=='0'){
     //updating the stock 
       $itemList = explode(',', $description);
       foreach ($itemList as $item) {
@@ -23,7 +41,7 @@ $id=$_GET['id'];
           $result_1 = mysqli_query($conn , $temp);
       
 
-
+    }
 
 ?>
 
@@ -59,7 +77,7 @@ $id=$_GET['id'];
         (function() {
             setTimeout(function() {
                 window.location.href = './cook_homepage.php?id='+jsVariable1;
-            }, 1500); // 5000 milliseconds = 5 seconds
+            }, 1500); // 1500 milliseconds = 5 seconds
         })();
 
         
@@ -72,23 +90,3 @@ $id=$_GET['id'];
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
