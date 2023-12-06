@@ -197,8 +197,6 @@ var form = document.createElement("form");
 </script>
    
 
-
-
 <div class="value-box styled-button_2">
     <strong>Student Due</strong> <br><?php echo $due ?>
 </div>
@@ -206,9 +204,14 @@ var form = document.createElement("form");
 <div class="value-box styled-button">
     <strong>Student Fine</strong> <br><?php echo $fine ?>
 </div>  
-
     </div>
-      
+    <button type = 'submit' class='styled-button_3' onclick='redirectToPage3()'> Submit a Feedback</button>
+    <script src="./faculty_script.js"></script>
+        <script>
+        // Use PHP echo to output the PHP variable as a JavaScript variable
+        var jsVariable = <?php echo json_encode($id); ?>;
+        // Now you can use jsVariable in your external JavaScript file
+    </script>
       <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
       <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
