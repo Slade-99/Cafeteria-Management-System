@@ -17,7 +17,7 @@ $id= $_GET['id'];
                         <h2>Food Trend</h2>
                         
                   </div>
-                  <div class="delete">
+                  <div class="delete" onclick="redirectToPage2()">
                         <h2>Overview of Service</h2>
                         
                   </div>
@@ -37,10 +37,10 @@ $id= $_GET['id'];
       // Change the URL to the desired destination
       window.location.href = './piechart_histogram.php?id='+jsVariable; // Replace 'https://example.com' with your actual URL
     }
-    /*function redirectToPage2() {
+    function redirectToPage2() {
       // Change the URL to the desired destination
-      window.location.href = './student_profile.php?id='+jsVariable; // Replace 'https://example.com' with your actual URL
-    }*/
+      window.location.href = './research.php?id='+jsVariable; // Replace 'https://example.com' with your actual URL
+    }
     
   </script>
 
