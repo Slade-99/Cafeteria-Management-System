@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: url(../background.jpg) center/cover no-repeat;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    background-color: #3498db;
+    color: #fff;
+    text-align: top;
+    padding: 20px 0;
+    width: 100%;
+    text-align: center; 
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+h1,
+h2 {
+    margin-bottom: 10px;
+}
+
+.metrics {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    width: 100%; 
+     background-color: #fff5;
+    backdrop-filter: blur(7px);
+    border: 1px solid #ccc;
+}
+
+.metric {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff5;
+    backdrop-filter: blur(7px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    flex: 1;
+    margin: 0 10px;
+}
+
+.customer-reviews {
+    border: 1px solid #ccc;
+    background-color: #fff5;
+    backdrop-filter: blur(7px);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 100%;
+}
+
+
+.review {
+    background-color: #fff5;
+    backdrop-filter: blur(7px);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 100%;
+    transition: box-shadow 0.3s ease;
+}
+
+.review:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.comment {
+    font-style: italic;
+}
+
+.bar-chart {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 150px;
+    padding: 10px 0;
+    width: 100%;
+    margin-bottom: 20px; 
+}
+
+
+
+.bar {
+    position: relative;
+    width: 20px;
+    background-color: #3498db;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.bar p {
+    margin: 0;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: #333;
+}
+
+.bar span {
+    font-size: 12px;
+    color: #666;
+    display: block;
+    position: relative;
+    top: calc(-25% );
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #eee;
+    border-radius: 4px;
+    height: 20px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    background-color: #3498db;
+    height: 100%;
+}
