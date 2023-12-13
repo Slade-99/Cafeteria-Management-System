@@ -12,6 +12,12 @@
       <link rel="stylesheet" href="update_menu.css">
 </head>
 <body>
+<header>
+            <nav class="navigation">
+                  <a href="../../index.php"> Logout</a>
+
+            </nav>
+      </header>
 
       <main class="table">
         <section class="table__header">

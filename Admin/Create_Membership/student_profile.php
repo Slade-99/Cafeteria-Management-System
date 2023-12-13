@@ -52,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
     
     
-        $user = $_SESSION['userid'];
+        $user = "E001";
     
         $insertion = "Insert into customer values ('$Membeship_ID','$Name','$Password','$Email','$Address','$Phone',$Due,'$Type',$Fines,'$Facult_type')";
 
@@ -61,10 +61,76 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
         
         
-        header("location: ../admin_homepage.php?id=".$user." ");
+        
         
       
-    }
+   //EMailing
+
+   include('../../smtp/PHPMailerAutoload.php');
+
+
+   function smtp_mailer($to,$subject, $msg){
+         $mail = new PHPMailer(); 
+         $mail->IsSMTP(); 
+         $mail->SMTPAuth = true; 
+         $mail->SMTPSecure = 'tls'; 
+         $mail->Host = "smtp.gmail.com";
+         $mail->Port = 587; 
+         $mail->IsHTML(true);
+         $mail->CharSet = 'UTF-8';
+         //$mail->SMTPDebug = 2; 
+         $mail->Username = "azwad.aziz2002@gmail.com";
+         $mail->Password = "vsrx ciyp bcob agzb";
+         $mail->SetFrom("azwad.aziz2002@gmail.com");
+         $mail->Subject = $subject;
+         $mail->Body =$msg;
+         $mail->AddAddress($to);
+         $mail->SMTPOptions=array('ssl'=>array(
+               'verify_peer'=>false,
+               'verify_peer_name'=>false,
+               'allow_self_signed'=>false
+         ));
+         if(!$mail->Send()){
+               echo $mail->ErrorInfo;
+         }else{
+               return 'Sent';
+         }
+   }
+   
+   
+   $html = "Your Account has been successfully created. Your Membership ID is ".$Membeship_ID;
+   echo smtp_mailer($Email,'BracU Cafeteria Account Creation',$html);
+   
+   
+   
+           
+           header("location: ../admin_homepage.php?id=".$user." ");
+           
+         
+       
+       
+       
+       
+   
+       
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+      }
     
     
     
@@ -100,7 +166,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
       <link rel="stylesheet" href="faculty_profile.css">
 </head>
 <body>
+<header>
+            <nav class="navigation">
+                  <a href="../../index.php"> Logout</a>
 
+            </nav>
+      </header>
 
       <div class="wrapper">
       
