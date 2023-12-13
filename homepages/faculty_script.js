@@ -166,7 +166,11 @@ var form = document.createElement("form");
    
    }
 
+   function redirectToPage4() {
 
+    window.location.href = './payment_completed.php?id='+jsVariable+'&total='+total+'&resultString='+resultString+'&status=Paid2';
+
+}
 
    function redirectToPage3() {
 

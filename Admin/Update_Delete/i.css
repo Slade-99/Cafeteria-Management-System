@@ -1,0 +1,150 @@
+body {
+    font-family: Arial, sans-serif;
+    
+    background: url(./background.jpg) center / cover;
+    margin: 0;
+    padding: 0;
+}
+
+.container12 {
+    width: 80%;
+    margin: auto;
+    background-color: #fff5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form_container {
+    background: #fff5;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.create_form input[type="text"] {
+    width: calc(100% - 10px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid fff5;
+    border-radius: 3px;
+    color: #333;
+}
+
+.create_form button {
+    padding: 10px 15px;
+    background: #4caf50;
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.create_form button:hover {
+    background: #1da724;
+}
+
+.table1 {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff81;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table1 th, .table1 td {
+    border: 1px solid #ffffff81;
+    padding: 8px;
+    text-align: left;
+}
+
+.table1 th {
+    background-color: #ffffff81;
+}
+
+.table1 tr:nth-child(even) {
+    background-color: #ffffff81;
+}
+
+.table1 tr:hover {
+    background-color: #ffffff81;
+}
+
+.table1 button {
+    padding: 5px 10px;
+    background: #27b35cd0;
+    border: none;
+    color: #00000081;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.table1 button:hover {
+    background: #2980b9;
+}
+
+
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: right;
+    z-index: 99;
+    transform: translate(-5%,0%);
+}
+
+.navigation a{
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 40px;
+    
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right ;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navigation a:hover::after {
+    transform-origin: right;
+    transform: scaleX(1);
+
+}
+
+.navigation .btnlogin-popup {
+ width: 130px;   
+ height: 50px;
+ background: transparent;
+ border: 2px solid #fff;
+ outline: none;
+ border-radius: 6px;
+ cursor: pointer;
+ font-size: 1.1em;
+ color: #fff;
+ font-weight: 500;
+ margin-left: 40px;
+ transition: .5s;
+}
+
+.navigation .btnlogin-popup:hover {
+    background: #fff;
+    color: aqua; 
+}

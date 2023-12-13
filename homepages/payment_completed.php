@@ -79,7 +79,46 @@ $result_1 = mysqli_query($conn , $temp);
      $temp="Update menu set Quantity = '$new' where Name='$name';";
      $result_1 = mysqli_query($conn , $temp);
  }
-}else{
+}else if($status=='Paid2'){
+  
+  $temp="Insert into Sales values('$Token','$date','$time','Paid','$total','$description','E001','$id')";
+  $result_1 = mysqli_query($conn , $temp);
+
+  $counting = "select count(*) from payment_gateway;";
+  $result_1 = mysqli_query($conn , $counting);
+  $row = mysqli_fetch_assoc($result_1);
+  $new = $row['count(*)'] +1;
+  $Tran_id = "TSD000".$new;
+
+
+
+//updating the payment_Gateway table;
+$temp="Insert into payment_gateway values('$Tran_id','$status','$date','$time','$Token')";
+$result_1 = mysqli_query($conn , $temp);
+
+
+
+
+  //updating the menu table
+$itemList = explode(',', $description);
+foreach ($itemList as $item) {
+   $array=explode('x', $item);
+   $quantity=$array[0];
+   // Convert string to integer using intval
+   $quantity = intval($quantity);
+   $name=substr($array[1], 1);
+   $temp="select Quantity from menu where Name='$name';";
+   $result_1 = mysqli_query($conn , $temp);
+   $row = mysqli_fetch_assoc($result_1);
+   $prev_quantity= $row['Quantity'];
+   $new=$prev_quantity-$quantity;
+   $temp="Update menu set Quantity = '$new' where Name='$name';";
+   $result_1 = mysqli_query($conn , $temp);
+}
+
+}
+
+else{
 
 $val_id=urlencode($_POST['val_id']);
 $store_id=urlencode("ashat6439aed07e661");
@@ -143,7 +182,7 @@ if($code == 200 && !( curl_errno($handle)))
               
           
               //updating the sales table
-              $temp="Insert into Sales values('$Token','$date','$time','$status','$total','$description','E001','$id')";
+              $temp="Insert into Sales values('$Token','$date','$time','Paid','$total','$description','E001','$id')";
               $result_1 = mysqli_query($conn , $temp);
               $bank_tran_id = "TSD".$bank_tran_id;
             //updating the Payment_Gateway table

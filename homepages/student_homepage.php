@@ -27,6 +27,12 @@ $fine = $row['Fines'];
       <link rel="stylesheet" href="s.css">
 </head>
 <body>
+<header>
+            <nav class="navigation">
+                  <a href="../index.php"> Logout</a>
+
+            </nav>
+      </header>
       <main class="table">
         <section class="table__header">
             <h1>Menu</h1>

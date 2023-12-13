@@ -148,8 +148,32 @@ button:hover {
   }
 
   .styled-button_3 {
-    top: 585px; /* Adjust as needed */
+    top: 569px; /* Adjust as needed */
     right: 220px;
+    display: inline-block;
+    position: absolute;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #37db34;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #fff5;
+    backdrop-filter: blur(7px);
+    box-shadow: 0 .4rem .8rem #0005;
+    border-radius: .8rem;
+    width: 150px;
+    height: 70px;
+    transform: translate(120%,-375%);
+
+  }
+
+  .styled-button_4 {
+    top: 850px; /* Adjust as needed */
+    right: 400px;
     display: inline-block;
     position: absolute;
     padding: 10px 20px;
@@ -547,4 +571,66 @@ thead th.active,tbody td.active {
 .delete h2 {
     font-weight: 600;
     margin-bottom: 8px;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: right;
+    z-index: 99;
+    transform: translate(84%,0%);
+}
+
+.navigation a{
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 40px;
+    
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right ;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navigation a:hover::after {
+    transform-origin: right;
+    transform: scaleX(1);
+
+}
+
+.navigation .btnlogin-popup {
+ width: 130px;   
+ height: 50px;
+ background: transparent;
+ border: 2px solid #fff;
+ outline: none;
+ border-radius: 6px;
+ cursor: pointer;
+ font-size: 1.1em;
+ color: #fff;
+ font-weight: 500;
+ margin-left: 40px;
+ transition: .5s;
+}
+
+.navigation .btnlogin-popup:hover {
+    background: #fff;
+    color: aqua; 
 }

@@ -9,7 +9,7 @@ if($exist=='1'){
   $name = $_GET['name'];
 
 
-  $insertion = "Insert into stock values ('$name',0,'EC007')";
+  $insertion = "Insert into stock values ('$name',0,'EC005')";
   $result_1 = mysqli_query($conn , $insertion);
 }
 $exist = $_GET['exist'];

@@ -19,7 +19,12 @@ $sql = "SELECT * from customer where Membership_ID = '$id'";
       <link rel="stylesheet" href="cook.css">
 </head>
 <body>
+<header>
+            <nav class="navigation">
+                  <a href="../index.php"> Logout</a>
 
+            </nav>
+      </header>
 
       <main class="table">
         <section class="table__header">

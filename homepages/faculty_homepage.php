@@ -38,7 +38,12 @@ if($exist=='Feedback'){
       <link rel="stylesheet" href="faculty.css">
 </head>
 <body>
+<header>
+            <nav class="navigation">
+                  <a href="../index.php"> Logout</a>
 
+            </nav>
+      </header>
       <main class="table">
         <section class="table__header">
             <h1>Menu</h1>
@@ -120,7 +125,8 @@ if($exist=='Feedback'){
 <button type = 'submit' class='styled-button' onclick='concatenatePositiveValues() ;redirectToPage()' >Proceed to payment</button>
  <button type = 'submit' class='styled-button_2' onclick='concatenatePositiveValues() ;redirectToPage2()'>Order on due</button>
  <button type = 'submit' class='styled-button_3' onclick='redirectToPage3()'> Submit a Feedback</button>
-   
+ 
+
         <script src="./faculty_script.js"></script>
         <script>
         // Use PHP echo to output the PHP variable as a JavaScript variable
