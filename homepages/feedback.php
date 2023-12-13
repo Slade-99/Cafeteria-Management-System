@@ -18,8 +18,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $temp="Insert into feedback values('$new','$rating','$comments','$id')";
     $result_1 = mysqli_query($conn , $temp);
     
-
-    header("location: ./faculty_homepage.php?id=".$id."&exist=Feedback ");
+if($id[0]=='F'){
+    header("location: ./faculty_homepage.php?id=".$id."&exist=Feedback ");}
+    else{
+      header("location: ./student_homepage.php?id=".$id."&exist=Feedback ");
+    }
 
   
 }
